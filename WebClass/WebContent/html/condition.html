@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JS 실습</title>
+</head>
+<body>
+	<h1>헌혈 조건 체크</h1>
+	나이 :
+	<input type="text" id="year" size="5">세
+	<br> 성별 : 남자
+	<input type="radio" name="gender" id="male" checked> 여자
+	<input type="radio" name="gender" id="female">
+	<br> 몸무게 :
+	<input type="text" id="weight" size="5">kg
+	<br>
+	<p>
+		<input type="button" onclick="check();" value="헌혈 조건 체크">
+	</p>
+	<P id="result"></P>
+<script>
+function check(){
+	var year = document.getElementById("year").value;
+	var weight = document.getElementById("weight").value;
+	if(Number(year) < 16 || Number(year) > 69){
+		document.getElementById("result").innerHTML= "연령 부적합";
+		return;
+	}
+	else if(document.getElementById("male").checked){
+		if(Number(weight) < 50){
+			document.getElementById("result").innerHTML= "체중 미달";
+			return;
+		}
+		else{
+			document.getElementById("result").innerHTML= "헌혈 가능합니다.";
+			return;
+		}
+	}
+	else if(document.getElementById("female").checked){
+		if(Number(weight) < 45){
+			document.getElementById("result").innerHTML= "체중 미달";
+			return;
+		}
+		else{
+			document.getElementById("result").innerHTML= "헌혈 가능합니다.";
+			return;
+		}
+	}
+}
+</script>
+</body>
+</html>

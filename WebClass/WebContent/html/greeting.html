@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JS 실습</title>
+</head>
+<body>
+	<input type="submit" onclick="greeting(k)" value="한국">
+	<input type="submit" onclick="greeting(e)" value="미국">
+	<input type="submit" onclick="greeting(c)" value="중국">
+	<p id="result"></p>
+<script>
+	function greeting(nation){
+		switch(nation){
+		case 'k':
+			document.getElementById("result").innerHTML= "안녕하세요!";
+			break;
+		case 'e':
+			document.getElementById("result").innerHTML= "Hello!";
+			break;
+		case 'c':
+			document.getElementById("result").innerHTML= "니 하오!";
+			break;
+		default:
+			break;
+		}
+	}
+	function korean(){
+		alert("안녕하세요!");
+	}
+	function english(){
+		alert("Hello!");
+	}
+	function chinese(){
+		alert("니 하오!");
+	}
+</script>
+</body>
+</html>
