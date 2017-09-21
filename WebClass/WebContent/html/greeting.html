@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>JS ì‹¤ìŠµ</title>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+function greeting(nation) {	
+	console.log("Greeting ½ÃÀÛ")
+	if (nation == 'k') {
+		document.getElementById("result").innerHTML = "¾È³çÇÏ¼¼¿ä";
+	}
+	if (nation == 'e') {
+		document.getElementById("result").innerHTML = "Çï·Î";
+	}
+	if (nation == 'c') {
+		document.getElementById("result").innerHTML = "´ÏÇÏ¿À";
+	}
+}
+function korean() {
+	alert("¾È³çÇÏ¼¼¿ä")
+}
+function english() {
+	alert("Çï·Î")
+}
+function chinese() {
+	alert("´ÏÇÏ¿À")
+}
+
+</script>
 </head>
 <body>
-	<input type="submit" onclick="greeting(k)" value="í•œêµ­">
-	<input type="submit" onclick="greeting(e)" value="ë¯¸êµ­">
-	<input type="submit" onclick="greeting(c)" value="ì¤‘êµ­">
-	<p id="result"></p>
-<script>
-	function greeting(nation){
-		switch(nation){
-		case 'k':
-			document.getElementById("result").innerHTML= "ì•ˆë…•í•˜ì„¸ìš”!";
-			break;
-		case 'e':
-			document.getElementById("result").innerHTML= "Hello!";
-			break;
-		case 'c':
-			document.getElementById("result").innerHTML= "ë‹ˆ í•˜ì˜¤!";
-			break;
-		default:
-			break;
-		}
-	}
-	function korean(){
-		alert("ì•ˆë…•í•˜ì„¸ìš”!");
-	}
-	function english(){
-		alert("Hello!");
-	}
-	function chinese(){
-		alert("ë‹ˆ í•˜ì˜¤!");
-	}
-</script>
+<p>°¢ ³ª¶óÀÇ ÀÎ»ç¸»</p>
+<input type="button" onclick="greeting('k');" value="ÇÑ±¹">
+<input type="button" onclick="greeting('e');" value="¹Ì±¹">
+<input type="button" onclick="greeting('c');" value="Áß±¹">
+<p id = "result"></p>
 </body>
 </html>
