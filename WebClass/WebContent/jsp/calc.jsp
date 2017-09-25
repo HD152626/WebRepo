@@ -26,16 +26,27 @@
 				}
 	%>
 	<h1>
-		1~<%=num%>까지의 합은
-		<%=sum%>입니다.
+		1~<%=num%>까지의 합은 <%=sum%>입니다.
 	</h1>
 	<%
 		}
 		}
-		
+
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");
-		
 	%>
-	현재 일시는 <%= sdf.format(new Date()) %> 입니다.
+	현재 일시는 <%=sdf.format(new Date())%>입니다.
+
+	<%
+		Integer cnt = (Integer) session.getAttribute("cnt");
+		if (cnt == null) {
+			out.println("최초호출");
+			cnt = 0;
+		}
+		session.setAttribute("cnt", ++cnt);
+	%>
+	<h1>
+		cnt:<%=cnt%></h1>
+	<br>
+	<%=request.getHeader("Cookie")%>
 </body>
 </html>
