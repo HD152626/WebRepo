@@ -9,11 +9,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONObject;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
+import org.dimigo.vo.UserVO;
+//import org.json.simple.JSONObject;
+//
+//import com.google.gson.Gson;
+//import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 /**
@@ -42,6 +44,38 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("application/json;charset=utf-8");
+		
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		System.out.printf("id : %s, pwd : %s\n", id, pwd);
+		
+		
+		boolean result = true;
+		
+		if(result){
+			//세션에 사용자 값 생성후 담기
+			HttpSession session = request.getSession();
+			
+			UserVO user = new UserVO();
+			user.setId(id);
+			user.setName("홍길동");
+			user.setNickname("의적");
+			
+			session.setAttribute("user", user);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("jsp/home.jsp");
+			rd.forward(request, response);
+		}
+		else {
+			request.setAttribute("msg", "error");
+			RequestDispatcher rd = request.getRequestDispatcher("jsp/home.jsp");
+			rd.forward(request, response);
+		}
+	}
+	
+	protected void doPost2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("application/json;charset=utf-8");
 		
